@@ -17,9 +17,9 @@ type Course struct {
 	Deleted   gorm.DeletedAt `json:"-"`
 }
 
-func (u *Course) BeforeCreate(tx *gorm.DB) (err error) {
-	if u.ID == "" {
-		u.ID = uuid.New().String()
+func (c *Course) BeforeCreate(tx *gorm.DB) (err error) {
+	if c.ID == "" {
+		c.ID = uuid.New().String()
 	}
 	return
 }
